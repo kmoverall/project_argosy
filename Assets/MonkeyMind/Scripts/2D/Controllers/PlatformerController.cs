@@ -51,7 +51,6 @@ namespace MonkeyMind.TwoD
         //Alters currentMotion based on horizontal input
         public void Move(float xIn)
         {
-
             //Sprite should face in input direction
             if ((isFacingRight && xIn < 0) || (!isFacingRight && xIn > 0))
             {
