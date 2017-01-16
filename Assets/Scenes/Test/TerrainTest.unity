@@ -879,9 +879,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca19c66cf5922a40971cfca1cf8a33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 32, y: 8, z: 32}
+  chunkSize: {x: 32, y: 16, z: 32}
   startPoint: {x: 0, y: 0}
   voxelSize: {x: 1, y: 0.5, z: 1}
+  sampleRate: {x: 1, y: 1}
+  heightVariation: 0.8
+  baseSurfaceHeight: 0.5
   showDebug: 0
 --- !u!4 &455703607
 Transform:
@@ -1299,7 +1302,7 @@ MonoBehaviour:
   character: {fileID: 2035915254}
   characterAnimator: {fileID: 2035915253}
   cameraRoot: {fileID: 1044412273}
-  maxWalkSpeed: 8
+  maxWalkSpeed: 6
   walkAcceleration: 40
   walkDeceleration: 160
   gravityScale: 1
@@ -1508,7 +1511,7 @@ Transform:
   m_PrefabParentObject: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962775637}
-  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
+  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
