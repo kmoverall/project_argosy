@@ -35,13 +35,23 @@ public class CharacterMovement : MonoBehaviour
 
     private bool willSnapToGround = true;
 
+    [System.NonSerialized]
+    public bool isAcceptingInput = true;
+
     public void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
 
+    public void SetInputAllowed(int inputAllowed) { isAcceptingInput = inputAllowed != 0; }
+
     public void Move(Vector3 input)
     {
+        if (!isAcceptingInput)
+        {
+            input = Vector3.zero;
+        }
+
         //Model should face in input direction
         if (input.magnitude != 0)
             character.transform.rotation = Quaternion.LookRotation(input, Vector3.up);
@@ -78,6 +88,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (!isAcceptingInput)
+            return;
+
         if (!controller.isGrounded)
             return;
 
