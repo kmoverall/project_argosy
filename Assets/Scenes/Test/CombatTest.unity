@@ -1378,7 +1378,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 396446845}
-  - component: {fileID: 396446844}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -1386,23 +1385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &396446844
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 396446843}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: bbfc23cff378be246a86863bbab5bb19, type: 3}
-  m_Controller: {fileID: 9100000, guid: f353c104fc9197a4897dc420e3412cb2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &396446845
 Transform:
   m_ObjectHideFlags: 0
@@ -5705,10 +5687,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1382595372}
-  - component: {fileID: 1382595371}
   - component: {fileID: 1382595370}
   - component: {fileID: 1382595369}
   - component: {fileID: 1382595373}
+  - component: {fileID: 1382595371}
   m_Layer: 0
   m_Name: Paladin_w_Prop_J_Nordstrom
   m_TagString: Untagged
@@ -5728,7 +5710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 396446845}
-  characterAnimator: {fileID: 396446844}
+  characterAnimator: {fileID: 1382595371}
   maxWalkSpeed: 8
   walkAcceleration: 30
   walkDeceleration: 60
@@ -5759,14 +5741,13 @@ CharacterController:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: bbfc23cff378be246a86863bbab5bb19,
-    type: 3}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1382595368}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bbfc23cff378be246a86863bbab5bb19, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
+  m_Controller: {fileID: 9100000, guid: f353c104fc9197a4897dc420e3412cb2, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

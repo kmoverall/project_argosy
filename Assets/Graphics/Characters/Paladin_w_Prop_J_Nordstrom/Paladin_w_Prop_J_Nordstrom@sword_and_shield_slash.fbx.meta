@@ -145,6 +145,7 @@ ModelImporter:
     7400002: sword_and_shield_slash_startup
     7400004: sword_and_shield_slash_active
     7400006: sword_and_shield_slash_recover
+    7400008: sword_and_shield_running_slash_startup
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -356,6 +357,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: SetMaintainSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.014051522
         functionName: SetInputAllowed
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -525,7 +533,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.50233644
+        functionName: SetMaintainSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

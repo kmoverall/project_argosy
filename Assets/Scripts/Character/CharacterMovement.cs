@@ -37,6 +37,8 @@ public class CharacterMovement : MonoBehaviour
 
     [System.NonSerialized]
     public bool isAcceptingInput = true;
+    [System.NonSerialized]
+    public bool isMaintainingSpeed = false;
 
     public void Awake()
     {
@@ -44,9 +46,15 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void SetInputAllowed(int inputAllowed) { isAcceptingInput = inputAllowed != 0; }
+    public void SetMaintainSpeed(int maintainSpeed) { isMaintainingSpeed = maintainSpeed != 0; }
 
     public void Move(Vector3 input)
     {
+        if (isMaintainingSpeed)
+        {
+            return;
+        }
+
         if (!isAcceptingInput)
         {
             input = Vector3.zero;
