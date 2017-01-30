@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerInput : MonoBehaviour {
 
     public CharacterMovement movementTarget;
-    public CharacterAttack attackTarget;
+    public CharacterCombat combatTarget;
     [SerializeField]
     private Transform cameraRoot;
 
@@ -17,6 +17,8 @@ public class PlayerInput : MonoBehaviour {
     KeyCode jumpKey;
     [SerializeField]
     KeyCode attackKey;
+    [SerializeField]
+    KeyCode rollKey;
 
     public void Update()
     {
@@ -30,6 +32,7 @@ public class PlayerInput : MonoBehaviour {
             movementTarget.Jump();
         }
         
-        attackTarget.Attack(Input.GetKeyDown(attackKey));
+        combatTarget.Attack(Input.GetKeyDown(attackKey));
+        combatTarget.Roll(Input.GetKeyDown(rollKey));
     }
 }

@@ -13,8 +13,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private Animator characterAnimator;
 
+    private float maxSpeed;
     [SerializeField]
     private float maxWalkSpeed = 5f;
+    [SerializeField]
+    private float rollSpeed = 7f;
     [SerializeField]
     private float walkAcceleration = 10f;
     [SerializeField]
@@ -30,10 +33,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private float snapDistance = 0.5f;
 
+
     private Vector3 currentMotion;
     public bool freezeMotion = false;
 
     private bool willSnapToGround = true;
+    private Vector3 lastDirection;
 
     [System.NonSerialized]
     public bool isAcceptingInput = true;
@@ -62,7 +67,10 @@ public class CharacterMovement : MonoBehaviour
 
         //Model should face in input direction
         if (input.magnitude != 0)
+        {
             character.transform.rotation = Quaternion.LookRotation(input, Vector3.up);
+            lastDirection = input.normalized;
+        }
 
         
         Vector3 planeMotion = new Vector3(currentMotion.x, 0, currentMotion.z);
@@ -84,7 +92,7 @@ public class CharacterMovement : MonoBehaviour
         {
             planeMotion += acceleration * Time.deltaTime;
             //Clamp to max speed
-            planeMotion = Vector3.ClampMagnitude(planeMotion, maxWalkSpeed);
+            planeMotion = Vector3.ClampMagnitude(planeMotion, maxSpeed);
         }
 
         //Handle animation parameter
@@ -92,6 +100,14 @@ public class CharacterMovement : MonoBehaviour
 
         currentMotion.x = planeMotion.x;
         currentMotion.z = planeMotion.z;
+    }
+
+    public void StartRoll()
+    {
+        currentMotion.x = lastDirection.x * rollSpeed;
+        currentMotion.z = lastDirection.z * rollSpeed;
+        isMaintainingSpeed = true;
+        isAcceptingInput = false;
     }
 
     public void Jump()
@@ -104,6 +120,12 @@ public class CharacterMovement : MonoBehaviour
 
         currentMotion.y = jumpVelocity;
         willSnapToGround = false;
+    }
+
+    void Start()
+    {
+        lastDirection = transform.forward;
+        maxSpeed = maxWalkSpeed;
     }
 
     void FixedUpdate()
