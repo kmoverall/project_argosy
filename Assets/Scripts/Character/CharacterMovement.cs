@@ -65,6 +65,8 @@ public class CharacterMovement : MonoBehaviour
             input = Vector3.zero;
         }
 
+        input.y = 0;
+
         //Model should face in input direction
         if (input.magnitude != 0)
         {
@@ -121,6 +123,15 @@ public class CharacterMovement : MonoBehaviour
         currentMotion.y = jumpVelocity;
         willSnapToGround = false;
     }
+
+    public void Knockback(float strength)
+    {
+        currentMotion.x = -lastDirection.x * strength;
+        currentMotion.z = -lastDirection.z * strength;
+        Debug.Log(currentMotion);
+    }
+
+
 
     void Start()
     {

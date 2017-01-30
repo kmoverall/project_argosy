@@ -7,6 +7,11 @@ public class EnableCharacterControl : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         animator.GetComponent<CharacterMovement>().isAcceptingInput = true;
         animator.GetComponent<CharacterMovement>().isMaintainingSpeed = false;
+        if (animator.GetComponent<CharacterCombat>() != null)
+            animator.GetComponent<CharacterCombat>().AttackHitboxSetActive(0);
+        if (animator.GetComponent<CharacterHealth>() != null)
+            animator.GetComponent<CharacterHealth>().SetVulnerable(1);
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
