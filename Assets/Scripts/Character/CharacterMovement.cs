@@ -128,7 +128,6 @@ public class CharacterMovement : MonoBehaviour
     {
         currentMotion.x = -lastDirection.x * strength;
         currentMotion.z = -lastDirection.z * strength;
-        Debug.Log(currentMotion);
     }
 
 
