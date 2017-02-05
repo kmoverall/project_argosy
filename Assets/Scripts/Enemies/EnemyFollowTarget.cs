@@ -2,16 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(CharacterMovement))]
-public class EnemyFollowTarget : MonoBehaviour {
+namespace Isometric
+{
+    [RequireComponent(typeof(CharacterMovement))]
+    public class EnemyFollowTarget : MonoBehaviour
+    {
 
-    [SerializeField]
-    Transform target;
-    [SerializeField]
-    float range;
+        [SerializeField]
+        Transform target;
+        [SerializeField]
+        float range;
 
-	void Update () {
-        Vector3 direction = target.position - transform.position;
-        GetComponent<CharacterMovement>().Move(direction);
-	}
+        void Update()
+        {
+            Vector3 direction = target.position - transform.position;
+            GetComponent<CharacterMovement>().Move(direction);
+        }
+    }
 }
